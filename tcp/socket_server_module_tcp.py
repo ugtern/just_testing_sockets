@@ -11,7 +11,10 @@ class MainExample(socketserver.BaseRequestHandler):
         data = self.request.recv(1024).strip()
         print('Address: {}'.format(self.client_address[0]))
         print('data: {}'.format(data.decode()))
-        self.request.sendall('Massage was transport to server'.encode())
+        self.request.sendall(str(input()).encode())
+
+    def finish(self):
+        print('finish one tick')
 
 
 if __name__ == '__main__':
